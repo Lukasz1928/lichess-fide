@@ -1,3 +1,4 @@
 regex
 wget
-bz2
+bz2file
+async-lichess-sdk
