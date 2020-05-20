@@ -33,8 +33,9 @@ def process_database(year, month):
 
 
 def main():
+    pass
     # download_database(2020, 4)
-    process_database(2020, 4)
+    # process_database(2020, 4)
 
 
 if __name__ == "__main__":

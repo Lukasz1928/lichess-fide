@@ -2,3 +2,5 @@
 data/*
 !data/.gitkeep
 src/resources/token.txt
+**/lichess_python_client.log
+**/__pycache__
