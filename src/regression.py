@@ -3,9 +3,10 @@ from sklearn import linear_model
 from src.data import get_ranking_filepath
 
 class Regression:
-    def __init__(self, coef, intercept):
+    def __init__(self, coef, intercept, score=None):
         self.coefs = coef
         self.intercept = intercept
+        self.score = score
 
     def __call__(self, ranks):
         s = self.intercept
@@ -30,4 +31,4 @@ def calculate_regression(year, month):
     xs = ranks.drop(['fide'], axis=1).to_numpy()
     ys = ranks['fide'].to_numpy()
     reg = linear_model.LinearRegression().fit(xs, ys)
-    return Regression(reg.coef_, reg.intercept_)
+    return Regression(reg.coef_, reg.intercept_, reg.score(xs, ys))

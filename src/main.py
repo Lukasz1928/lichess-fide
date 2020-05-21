@@ -9,6 +9,7 @@ def main():
     # process_rankings(2020, 4)
     r = calculate_regression(2020, 4)
     print(r)
+    print(r.score)
 
     token = get_token()
     rank = get_user_ranking('Lukasz1928', token, r)
