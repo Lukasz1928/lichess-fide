@@ -2,10 +2,10 @@ import os
 from math import ceil
 from time import sleep
 
-from src.data import get_names_filepath, get_ranking_filepath, get_ranking_partial_location
+from src.utils.filenames import get_names_filepath, get_ranking_filename, get_ranking_partial_location
 from lichess_client import APIClient
 import asyncio
-from src.api_token import get_token
+from src.utils.api_token import get_token
 
 
 async def get_rankings(token, names):
@@ -45,7 +45,7 @@ def format_save_line(rank):
 def save_rankings(year, month):
     partial_files = os.listdir(get_ranking_partial_location())
     partial_files.remove('.gitkeep')
-    with open(get_ranking_filepath(year, month), 'w+') as f:
+    with open(get_ranking_filename(year, month), 'w+') as f:
         f.write("name,fide,bullet,blitz,rapid,classical,correspondence\n")
         for pf in partial_files:
             with open('{}/{}'.format(get_ranking_partial_location(), pf)) as partial:
@@ -63,12 +63,7 @@ def read_done_chunks():
     return len(os.listdir(get_ranking_partial_location())) - 1
 
 
-def slice_array(arr, length):
-    low, high = 0, length
-    while low < len(arr):
-        yield arr[low:high]
-        low += length
-        high += length
+
 
 
 async def aget_user_ranking(user, token):
@@ -102,7 +97,7 @@ def process_rankings(year, month):
             response = asyncio.run(get_rankings(token, names_chunk))
             status = response.code
             if status != 429:
-                print('success {}/{} ({}/{} players)'.format((id + 1), total_requests, (id + 1) * names_chunk_size, len(names)))
+                # print('success {}/{} ({}/{} players)'.format((id + 1), total_requests, (id + 1) * names_chunk_size, len(names)))
                 break
             print('waiting for {} minute(s)'.format(wait_time))
             sleep(60 * wait_time + 1)
@@ -110,10 +105,12 @@ def process_rankings(year, month):
 
         response = response.content
         players = [p for p in response if has_fide_ranking(p)]
-        for player in players:
-            player_rankings = get_player_rankings(player)
-            rankings.append({'name': player['id'],
-                             'rankings': player_rankings})
-        save_partial_rankings(rankings, id)
-
-    save_rankings(year, month)
+        ranks = [p['perfs'] for p in players]
+        print(ranks)
+    #     for player in players:
+    #         player_rankings = get_player_rankings(player)
+    #         rankings.append({'name': player['id'],
+    #                          'rankings': player_rankings})
+    #     save_partial_rankings(rankings, id)
+    #
+    # save_rankings(year, month)

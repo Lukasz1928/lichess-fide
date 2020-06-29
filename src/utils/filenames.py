@@ -11,7 +11,7 @@ def get_names_filepath(year, month):
     return '../data/names-{}-{:02d}.txt'.format(year, month)
 
 
-def get_ranking_filepath(year, month):
+def get_ranking_filename(year, month):
     return '../data/rankings-{}-{:02d}.csv'.format(year, month)
 
 

@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn import linear_model
-from src.data import get_ranking_filepath
+from src.utils.filenames import get_ranking_filename
+
 
 class Regression:
     def __init__(self, coef, intercept, score=None):
@@ -20,7 +21,7 @@ class Regression:
 
 
 def read_rankings_file(year, month):
-    return pd.read_csv(get_ranking_filepath(year, month))
+    return pd.read_csv(get_ranking_filename(year, month))
 
 
 def calculate_regression(year, month):
