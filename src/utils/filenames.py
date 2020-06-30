@@ -22,3 +22,7 @@ def get_ranking_partial_location():
 def get_ranking_partial_filename(id):
     return '{}/{}.csv'.format(get_ranking_partial_location(), id)
 
+
+def get_partial_processed_filename():
+    return '../data/processed.txt'
+
