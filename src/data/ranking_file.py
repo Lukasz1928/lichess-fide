@@ -9,7 +9,7 @@ def _format_line(ranking):
 
 
 def _parse_line(line):
-    values = [int(v) if v != "None" else None for v in line.split(',')]
+    values = [int(v) if v != "None" else None for v in line[:-1].split(',')]
     ranks = {}
     for i, v in enumerate(variants):
         ranks[v] = (values[i], values[i + len(variants)])

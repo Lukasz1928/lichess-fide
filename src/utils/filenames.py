@@ -19,6 +19,10 @@ def get_ranking_partial_location():
     return '../data/temp'
 
 
+def get_ranking_differences_filename(year, month):
+    return '../data/ranking-differences-{}-{:02d}.csv'.format(year, month)
+
+
 def get_ranking_partial_filename(id):
     return '{}/{}.csv'.format(get_ranking_partial_location(), id)
 
