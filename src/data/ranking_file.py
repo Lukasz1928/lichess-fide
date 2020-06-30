@@ -13,7 +13,7 @@ def _parse_line(line):
     ranks = {}
     for i, v in enumerate(variants):
         ranks[v] = (values[i], values[i + len(variants)])
-    ranks['fide'] = values[len(variants)]
+    ranks['fide'] = values[2 * len(variants)]
     return ranks
 
 
