@@ -7,8 +7,8 @@ from src.utils.variants import variants
 
 class Regression:
     def __init__(self, coef, intercept, score=None):
-        self.coefs = [round(x, 2) for x in coef]
-        self.intercept = intercept
+        self.coefs = [round(x, 4) for x in coef]
+        self.intercept = round(intercept, 4)
         self.score = score
 
     def __call__(self, ranks):
@@ -20,8 +20,8 @@ class Regression:
     def __str__(self):
         s = ""
         for i in range(len(variants)):
-            s += "{:.2f} * {} + ".format(self.coefs[i], variants[i])
-        s += "{:.2f}".format(self.intercept)
+            s += "{:.4f} * {} + ".format(self.coefs[i], variants[i])
+        s += "{:.4f}".format(self.intercept)
         return s
 
     @staticmethod
@@ -41,4 +41,4 @@ class Regression:
 
 
 def filter_rankings_by_fide(rankings):
-    return [r for r in rankings if r['fide'] is not None]
+    return [r for r in rankings if r['fide'] is not None and 1000 <= r['fide'] <= 2900]

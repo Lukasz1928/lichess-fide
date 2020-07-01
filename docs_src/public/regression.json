@@ -1,1 +1,1 @@
-{"coefs": [0.15, 0.19, 0.06, 0.25], "intercept": 495.67852766020496, "coefs_order": ["bullet", "blitz", "rapid", "classical"]}
+{"coefs": [0.0035, 0.3175, 0.1567, 0.2557], "intercept": 304.3231343568914, "coefs_order": ["bullet", "blitz", "rapid", "classical"]}
