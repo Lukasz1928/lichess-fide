@@ -17,7 +17,7 @@ def _parse_line(line):
     return ranks
 
 
-def save(rankings, filename):
+def save_rankings(rankings, filename):
     exists = True
     try:
         open(filename, 'r').close()
@@ -30,7 +30,7 @@ def save(rankings, filename):
             f.write(_format_line(r) + "\n")
 
 
-def read(filename):
+def read_rankings(filename):
     ranks = []
     with open(filename, 'r') as f:
         f.__next__()

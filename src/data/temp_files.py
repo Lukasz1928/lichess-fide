@@ -15,11 +15,3 @@ def read_processed(filename):
     except FileNotFoundError:
         pass
     return names
-
-
-def count_already_processed(filename):
-    try:
-        with open(filename, 'r') as f:
-            return len(f)
-    except FileNotFoundError:
-        return 0

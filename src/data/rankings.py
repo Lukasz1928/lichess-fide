@@ -4,10 +4,10 @@ from time import sleep
 
 from lichess_client import APIClient
 
-from src.data.ranking_file import save
+from src.data.ranking_file import save_rankings
 from src.data.temp_files import read_processed, save_processed
 from src.utils.api_token import get_token
-from src.utils.filenames import get_names_filepath, get_ranking_filename, get_partial_processed_filename
+from src.utils.filenames import get_names_filename, get_ranking_filename, get_partial_processed_filename
 from src.utils.misc import slice_array
 from src.utils.variants import variants
 
@@ -45,13 +45,14 @@ def _extract_rankings(player):
 
 
 def _get_names_to_process(year, month):
-    names_filename = get_names_filepath(year, month)
+    names_filename = get_names_filename(year, month)
     with open(names_filename, 'r') as f:
         names = [n.strip('\n') for n in f]
     processed = read_processed(get_partial_processed_filename())
     return list(set(names) - processed)
 
 
+# Be careful, it can download only 4200 samples/10 minutes due to lichess API restrictions
 def get_and_save_rankings(year, month):
     names = _get_names_to_process(year, month)
     names_chunk_size = 300  # for some reason when it's > 300 response contains only 300 records
@@ -66,7 +67,7 @@ def get_and_save_rankings(year, month):
         rankings_response = _get_rankings(token, names_chunk)
         players = rankings_response.content
         rankings = [_extract_rankings(p) for p in players]
-        save(rankings, get_ranking_filename(year, month))
+        save_rankings(rankings, get_ranking_filename(year, month))
         save_processed(names_chunk, get_partial_processed_filename())
         already_processed += len(names_chunk)
         print('Processed next {} names. Total: {}/{}'.format(len(names_chunk), already_processed, len(names)))

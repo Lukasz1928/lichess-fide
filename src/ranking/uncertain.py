@@ -1,6 +1,4 @@
-from src.ranking.differences import read_ranking_differences
 from src.ranking.utils import split_variants_by_established, get_player_ranking_in_variant
-from src.utils.filenames import get_ranking_differences_filename
 
 
 def _fill_provisional_rankings(player, ranking_differences):
@@ -18,7 +16,6 @@ def _fill_provisional_rankings(player, ranking_differences):
     return rankings
 
 
-def fill_uncertain_values(rankings, year, month):
-    ranking_differences = read_ranking_differences(get_ranking_differences_filename(year, month))
+def fill_and_filter_uncertain_values(rankings, ranking_differences):
     filled = [_fill_provisional_rankings(p, ranking_differences) for p in rankings]
     return [f for f in filled if f is not None]

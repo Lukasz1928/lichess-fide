@@ -24,4 +24,3 @@ def split_variants_by_established(player):
         else:
             provisional.append(variant)
     return established, provisional
-
