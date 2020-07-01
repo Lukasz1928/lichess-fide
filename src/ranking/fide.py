@@ -1,3 +1,5 @@
+import json
+
 from sklearn import linear_model
 
 from src.utils.variants import variants
@@ -5,7 +7,7 @@ from src.utils.variants import variants
 
 class Regression:
     def __init__(self, coef, intercept, score=None):
-        self.coefs = coef
+        self.coefs = [round(x, 2) for x in coef]
         self.intercept = intercept
         self.score = score
 
@@ -28,6 +30,14 @@ class Regression:
         ys = [player['fide'] for player in rankings]
         reg = linear_model.LinearRegression().fit(xs, ys)
         return Regression(reg.coef_, reg.intercept_, reg.score(xs, ys))
+
+    def save(self, filename):
+        json_reg = {'coefs': self.coefs,
+                    'intercept': self.intercept,
+                    'coefs_order': variants}
+        str_reg = json.dumps(json_reg)
+        with open(filename, 'w+') as f:
+            f.write(str_reg)
 
 
 def filter_rankings_by_fide(rankings):
