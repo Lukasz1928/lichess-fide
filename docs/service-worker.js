@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/lichess-fide/precache-manifest.9421be0bb3d1f069542a8a77a397575d.js"
+  "/lichess-fide/precache-manifest.0c12783c4a417bb01d64f98c97094413.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -9,8 +9,8 @@ from src.ranking.fide import Regression, filter_rankings_by_fide
 
 
 def _save_results(ranking_differences, regression):
-    save_ranking_differences(ranking_differences, '../docs_src/public/ranking-differences.json')
-    regression.save('../docs_src/public/regression.json')
+    save_ranking_differences(ranking_differences, '../docs_src/src/resources/ranking-differences.json')
+    regression.save('../docs_src/src/resources/regression.json')
 
 
 def main():

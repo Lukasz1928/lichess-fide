@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/lichess-fide/static/css/main.5f361e03.chunk.css",
-    "main.js": "/lichess-fide/static/js/main.76295204.chunk.js",
-    "main.js.map": "/lichess-fide/static/js/main.76295204.chunk.js.map",
+    "main.css": "/lichess-fide/static/css/main.a5091ea5.chunk.css",
+    "main.js": "/lichess-fide/static/js/main.ad751b49.chunk.js",
+    "main.js.map": "/lichess-fide/static/js/main.ad751b49.chunk.js.map",
     "runtime-main.js": "/lichess-fide/static/js/runtime-main.f622b32c.js",
     "runtime-main.js.map": "/lichess-fide/static/js/runtime-main.f622b32c.js.map",
-    "static/js/2.af37c321.chunk.js": "/lichess-fide/static/js/2.af37c321.chunk.js",
-    "static/js/2.af37c321.chunk.js.map": "/lichess-fide/static/js/2.af37c321.chunk.js.map",
+    "static/js/2.3b298a52.chunk.js": "/lichess-fide/static/js/2.3b298a52.chunk.js",
+    "static/js/2.3b298a52.chunk.js.map": "/lichess-fide/static/js/2.3b298a52.chunk.js.map",
     "index.html": "/lichess-fide/index.html",
-    "precache-manifest.9421be0bb3d1f069542a8a77a397575d.js": "/lichess-fide/precache-manifest.9421be0bb3d1f069542a8a77a397575d.js",
+    "precache-manifest.0c12783c4a417bb01d64f98c97094413.js": "/lichess-fide/precache-manifest.0c12783c4a417bb01d64f98c97094413.js",
     "service-worker.js": "/lichess-fide/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/lichess-fide/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.af37c321.chunk.js.LICENSE.txt": "/lichess-fide/static/js/2.af37c321.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/lichess-fide/static/media/logo.5d5d9eef.svg"
+    "static/css/main.a5091ea5.chunk.css.map": "/lichess-fide/static/css/main.a5091ea5.chunk.css.map",
+    "static/js/2.3b298a52.chunk.js.LICENSE.txt": "/lichess-fide/static/js/2.3b298a52.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f622b32c.js",
-    "static/js/2.af37c321.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.76295204.chunk.js"
+    "static/js/2.3b298a52.chunk.js",
+    "static/css/main.a5091ea5.chunk.css",
+    "static/js/main.ad751b49.chunk.js"
   ]
 }

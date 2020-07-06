@@ -1,0 +1,8 @@
+.Rating-display {
+    border-style: solid;
+    border-color: aqua;
+    display: inline-block;
+    width: 20%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
